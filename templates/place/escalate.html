@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Escalate Issue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: #f4f6f9;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #ffffff;
+      width: 420px;
+      padding: 28px 30px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      color: #111827;
+      text-align: center;
+    }
+
+    p {
+      font-size: 14px;
+      color: #6b7280;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #2563eb;
+    }
+
+    button {
+      width: 100%;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 12px;
+      color: #6b7280;
+      text-align: center;
+    }
+
+    .flash {
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <h2>🚨 Escalate Issue</h2>
+    <p>Select the Issue Token to escalate it to constituency</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+
+      <!-- ISSUE TOKEN DROPDOWN -->
+      <label for="issue_token">Issue Token</label>
+      <select name="issue_token" id="issue_token" required>
+        <option value="">-- Select Issue Token --</option>
+
+        {% for issue in issues %}
+          <option value="{{ issue.issue_token }}">
+            {{ issue.issue_token }} – {{ issue.description[:40] }}...
+          </option>
+        {% endfor %}
+      </select>
+
+      <button type="submit">Escalate to Constituency</button>
+    </form>
+
+    <div class="note">
+      Once escalated, this issue will move to constituency review.
+    </div>
+
+  </div>
+
+</body>
+</html>

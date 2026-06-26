@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Department Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f4f6f9;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* ---------- SIDEBAR ---------- */
+    .sidebar {
+      width: 240px;
+      background: #111827;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .nav {
+      flex: 1;
+    }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      text-decoration: none;
+      color: #d1d5db;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    .nav a:hover {
+      background: #374151;
+      color: #fff;
+    }
+
+    .logout {
+      margin-top: auto;
+    }
+
+    .logout a {
+      background: #ef4444;
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      display: block;
+    }
+
+    .logout a:hover {
+      background: #dc2626;
+    }
+
+    /* ---------- MAIN ---------- */
+    .main {
+      flex: 1;
+      padding: 30px 40px;
+    }
+
+    .header {
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 26px;
+      color: #111827;
+      margin-bottom: 6px;
+    }
+
+    .header p {
+      color: #6b7280;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .card h2 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #111827;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 14px;
+    }
+
+    .card a {
+      text-decoration: none;
+      font-weight: 600;
+      color: #4f46e5;
+      font-size: 14px;
+    }
+
+    .card a:hover {
+      color: #4338ca;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="logo">🏛️ Department Admin</div>
+
+  <nav class="nav">
+    <a href="/department/dashboard">📊 Dashboard</a>
+    <a href="/department/issues">📂 All Issues</a>
+    <a href="/department/dashboard">📈 Analytics</a>
+    <a href="/department/issues">🔍 Search</a>
+  </nav>
+
+  <div class="logout">
+    <a href="/logout">🚪 Logout</a>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="header">
+    <h1>Department Admin Dashboard</h1>
+    <p>Monitor and manage department-level escalated issues</p>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h2>📋 All Issues</h2>
+      <p>View all issues escalated to your department.</p>
+      <a href="/department/issues">View Issues →</a>
+    </div>
+
+    <div class="card">
+      <h2>⏳ Pending Issues</h2>
+      <p>Issues awaiting departmental action.</p>
+      <a href="/department/issues">Review →</a>
+    </div>
+
+    <div class="card">
+      <h2>🔄 In Progress</h2>
+      <p>Issues currently being worked on by your department.</p>
+      <a href="/department/issues">Track →</a>
+    </div>
+
+    <div class="card">
+      <h2>✅ Resolved</h2>
+      <p>Completed and closed issues.</p>
+      <a href="/department/issues">View →</a>
+    </div>
+  </div>
+</main>
+
+</body>
+</html>

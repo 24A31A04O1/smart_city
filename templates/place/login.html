@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Place Admin Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #1f2937, #111827);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .login-card {
+      background: #ffffff;
+      width: 380px;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+
+    .login-card h2 {
+      text-align: center;
+      margin-bottom: 6px;
+      color: #111827;
+    }
+
+    .login-card p {
+      text-align: center;
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 25px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #374151;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #4f46e5;
+      box-shadow: 0 0 0 2px rgba(79,70,229,0.2);
+    }
+
+    .login-btn {
+      width: 100%;
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-btn:hover {
+      background: #4338ca;
+    }
+
+    .flash {
+      background: #fee2e2;
+      color: #991b1b;
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .back {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .back a {
+      color: #4f46e5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="login-card">
+
+    <h2>Place Admin Login</h2>
+    <p>Login to manage issues in your place</p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">{{ messages[0] }}</div>
+      {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="admin@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" placeholder="••••••••" required>
+      </div>
+
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+
+    <div class="back">
+      <a href="/">← Back to Home</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
